@@ -1,10 +1,11 @@
-function Pizza(elSize, elToppings) {
+function Pizza(elSize, elToppings, elTabulator) {
   this.elSize = elSize;
   this.elToppings = elToppings;
+  this.elTabulator = elTabulator;
   var elPrice = 0;
 }
 
-Pizza.prototype.elToppings() {
+Pizza.prototype.elToppings = function() {
   var toppingSum = 0;
   if(document.getElementById("Pepperoni").checked) {
     toppingSum += 1;
@@ -21,9 +22,10 @@ Pizza.prototype.elToppings() {
   if(document.getElementById("Potato").checked) {
     toppingSum += 2;
   }
+  return toppingSum;
 }
 
-Pizza.prototype.elSize() {
+Pizza.prototype.elSize = function() {
   var sizeSum = 0;
   if(document.getElementById("Small").checked) {
     toppingSum += 10;
@@ -34,16 +36,20 @@ Pizza.prototype.elSize() {
   if(document.getElementById("Large").checked) {
     toppingSum += 20;
   }
-  var price = toppingSum;
+  return sizeSum;
 }
 
-  document.getElementById('receipt').innerHTML = "$" + price;
-
-
-
+Pizza.prototype.elTabulator = function() {
+  return this.elSize() + this.elToppings();
+}
 
 $(document).ready(function() {
   $("form#pizzaForm").submit(function(event) {
     event.preventDefault();
+    var elPizza = new Pizza(elSize, elToppings, elTabulator);
+    var elPrice = elPizza.elTabulator();
+
+    $("span#elPrice").text(elPrice);
+
   });
 });
