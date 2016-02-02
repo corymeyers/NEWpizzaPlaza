@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="js/jquery-1.12.0.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>Pizza Plaza</title>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <h1 class="name">Pizza Plaza</h1>
+    </header><br>
+
+    <p>Welcome to Pizza Plaza! Please order your pizza below:</p><br><br>
+
+  <div class="jumbotron">
+    <form id="pizzaForm">
+      <label for="elToppings">Which toppings would you like?</label>
+        <input type="checkbox" id="Pepperoni">Pepperoni
+        <input type="checkbox" id="Pickles">Pickles
+        <input type="checkbox" id="Porridge">Porridge
+        <input type="checkbox" id="Peppercini">Peppercini
+        <input type="checkbox" id="Potato">Potato
+        <br>
+
+      <label for="PizzaSize">Select your size</label>
+        <input type="radio" name="size" id="Small">Small
+        <input type="radio" name="size" id="Medium">Medium
+        <input type="radio" name="size" id="Large">Large
+        <br>
+
+      <button onclick='elToppings()' class="btn btn-warning">Submit</button>
+
+      <p>Here's Your Price:</p>
+      <p id="receipt"></p>
+    </form>
+  </div>
+</body>
+</html>
