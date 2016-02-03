@@ -3,35 +3,35 @@ function Pizza(elSize, elToppings) {
   this.elToppings = elToppings;
 }
 
-Pizza.prototype.elToppings = function() {
+Pizza.prototype.elToppingsCaculator = function() {
   var toppingSum = 0;
-  if (this.pepperoni == true) {
-    toppingSum += 4;
+  if (this.pepperoni === true) {
+    return toppingSum += 4;
   }
-  else if (this.pickles === true) {
+  if (this.pickles === true) {
     toppingSum += 5;
   }
-  else if (this.porridge == true) {
+  if (this.porridge === true) {
     toppingSum += 6;
   }
-  else if (this.peppercini == true) {
+  if (this.peppercini === true) {
     toppingSum += 9;
   }
-  else if (this.potato == true) {
+  if (this.potato === true) {
     toppingSum += 7;
   }
   return toppingSum;
 }
 
-Pizza.prototype.elSize = function() {
+Pizza.prototype.elSizeCaculator = function() {
   var sizeSum = 0;
-  if(this.small == true) {
+  if(this.small === true) {
     sizeSum += 6;
   }
-  else if(this.medium == true) {
+  if(this.medium === true) {
     sizeSum += 9;
   }
-  else if(this.large == true) {
+  if(this.large === true) {
     sizeSum += 7;
   }
   return sizeSum;
@@ -39,7 +39,6 @@ Pizza.prototype.elSize = function() {
 
 Pizza.prototype.elTabulator = function() {
   return this.elSize + this.elToppings;
-  console.log(this.elSize)
 }
 
 $(document).ready(function() {
@@ -53,10 +52,14 @@ $(document).ready(function() {
     var small = $("#small").is(":checked");
     var medium = $("#medium").is(":checked");
     var large = $("#large").is(":checked");
+    if (small === true) {
+      elSize = small;
+    } else if
+
     var newPizza = new Pizza(elSize, elToppings);
     var elSize = ""
     var elToppings = ""
         // document.getElementById("elPrice").innerHTML = elTabulator();
-    $('#elPrice').text(newPizza.elTabulator());
+    $('.elPrice').text(newPizza.elTabulator());
   });
 });
