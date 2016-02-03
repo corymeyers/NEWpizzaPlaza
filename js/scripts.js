@@ -5,38 +5,36 @@ function Pizza(elSize, elToppings) {
 
 Pizza.prototype.elToppings = function() {
   var toppingSum = 0;
-
-if(Pepperoni === true) {
-  toppingSum =+ 4;
-}
-  // if($(document.getElementById("Pickles").checked)) {
-  //   toppingSum += 4;
-  // }
-  // if($(document.getElementById("Porridge").checked)) {
-  //   toppingSum += 9;
-  // }
-  // if($(document.getElementById("Peppercini").checked)) {
-  //   toppingSum += 5;
-  // }
-  // if($(document.getElementById("Potato").checked)) {
-  //   toppingSum += 2;
-  // }
-
+  if(this.pepperoni === true) {
+    toppingSum =+ 4;
+  }
+  if(this.pickles === true) {
+    toppingSum =+ 5;
+  }
+  if(this.porridge === true) {
+    toppingSum =+ 6;
+  }
+  if(this.peppercini === true) {
+    toppingSum =+ 9;
+  }
+  if(this.potato === true) {
+    toppingSum =+ 7;
+  }
   return toppingSum;
 }
 
 Pizza.prototype.elSize = function() {
   var sizeSum = 0;
-  if($(document.getElementById("Small").checked)) {
-    sizeSum += 10;
+  if(this.small === true) {
+    toppingSum =+ 6;
   }
-  if($(document.getElementById("Medium").checked)) {
-    sizeSum += 15;
+  if(this.medium === true) {
+    toppingSum =+ 9;
   }
-  if($(document.getElementById("Large").checked)) {
-    sizeSum += 20;
+  if(this.large === true) {
+    toppingSum =+ 7;
   }
-  return sizeSum;
+  return toppingSum;
 }
 
 Pizza.prototype.elTabulator = function() {
@@ -44,28 +42,17 @@ Pizza.prototype.elTabulator = function() {
 }
 
 $(document).ready(function() {
-  $("form#pizzaForm").submit(function(event) {
+  $("form#pizzaFormp").submit(function(event) {
     event.preventDefault();
-    Pepperoni = $("#Pepperoni").is(":checked");
-    document.getElementById("elPrice").innerHTML = Pepperoni;
-    // if(document.getElementById("Pepperoni").checked) {
-    //   var a = document.getElementById("Pepperoni").value;
-    //   document.getElementById("elPrice").innerHTML = a;
-    // }
-    var el = document.getElementById('pizzaForm');
-    document.getElementById("elPrice").innerHTML = el;
-
-
-
-
-
-
-    var elPizza = new Pizza(elSize, elToppings);
-    var elSize = this.elSize
-    var elToppings = this.elToppings
-    var elTabulator = this.elTabulator
-
-    $("span#elPrice").text(elTabulator);
-
+    var pepperoni = $("#pepperoni").is(":checked");
+    var pickles = $("#pickles").is(":checked");
+    var porridge = $("#porridge").is(":checked");
+    var peppercini = $("#peppercini").is(":checked");
+    var potato = $("#potato").is(":checked");
+    var small = $("#small").is(":checked");
+    var medium = $("#medium").is(":checked");
+    var large = $("#large").is(":checked");
+    var newPizza = new Pizza(elSize, elToppings);
+    document.getElementById("elPrice").innerHTML = newPizza.elTabulator();
   });
 });
