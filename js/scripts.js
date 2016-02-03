@@ -7,7 +7,6 @@ Pizza.prototype.elToppings = function() {
   var toppingSum = 0;
   if (this.pepperoni == true) {
     toppingSum += 4;
-    console.log(this.pepperoni);
   }
   else if (this.pickles === true) {
     toppingSum += 5;
@@ -27,20 +26,20 @@ Pizza.prototype.elToppings = function() {
 Pizza.prototype.elSize = function() {
   var sizeSum = 0;
   if(this.small == true) {
-    toppingSum += 6;
+    sizeSum += 6;
   }
   else if(this.medium == true) {
-    toppingSum += 9;
+    sizeSum += 9;
   }
   else if(this.large == true) {
-    toppingSum += 7;
+    sizeSum += 7;
   }
   return toppingSum;
 }
 
 Pizza.prototype.elTabulator = function() {
   return this.elSize + this.elToppings;
-
+  console.log(this.elSize)
 }
 
 $(document).ready(function() {
@@ -58,6 +57,6 @@ $(document).ready(function() {
     var elSize = ""
     var elToppings = ""
         // document.getElementById("elPrice").innerHTML = elTabulator();
-    $('#elPrice').text(newPizza.elTabulator);
+    $('#elPrice').text(newPizza.elTabulator());
   });
 });
