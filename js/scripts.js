@@ -34,7 +34,7 @@ Pizza.prototype.elSize = function() {
   else if(this.large == true) {
     sizeSum += 7;
   }
-  return toppingSum;
+  return sizeSum;
 }
 
 Pizza.prototype.elTabulator = function() {
