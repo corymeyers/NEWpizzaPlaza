@@ -13,19 +13,24 @@ Pizza.prototype.elToppingsCaculator = function() {
 
 Pizza.prototype.elSizeCaculator = function() {
   this.sizePrice = 0;
-  if(this.size === "small") {
-    this.sizePrice =+ 14;
-  } else if (this.size === "medium") {
-    this.sizePrice =+ 16;
-  } else if (this.size === "large") {
-    this.sizePrice =+ 18;
-  } return this.sizePrice
+  if(this.size = "small") {
+    this.sizePrice += 14;
+  } else if (this.size = "medium") {
+    this.sizePrice += 16;
+  } else if (this.size = "large") {
+    this.sizePrice += 18;
+  } return this.sizePrice;
 }
-
 
 Pizza.prototype.elTabulator = function() {
-  return this.toppingPrice + this.sizePrice;
+  return this.elToppingsCaculator() + this.elSizeCaculator();
 }
+
+
+//
+// Pizza.prototype.elTabulator = function() {
+//   return this.toppingPrice + this.sizePrice;
+// }
 
 $(document).ready(function() {
   $("form#pizzaForm").submit(function(event) {
