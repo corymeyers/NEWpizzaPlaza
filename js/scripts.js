@@ -1,12 +1,12 @@
 function Pizza(elSize, elToppings) {
   this.elSize = elSize;
   this.elToppings = elToppings;
-  this.elPrice = 0;
+  // this.elPrice;
 }
 
 Pizza.prototype.elToppingsCaculator = function() {
   this.elPrice = 0;
-  for (var i = 0; i < this.toppings.length; i++) {
+  for (var i = 0; i < this.elToppings.length; i++) {
     this.elPrice += 1;
   }
 }
@@ -24,16 +24,18 @@ Pizza.prototype.elSizeCaculator = function() {
 
 
 Pizza.prototype.elTabulator = function() {
-  return this.elPrice;
+  return this.elToppingsCaculator() + this.elSizeCaculator();
 }
 
 $(document).ready(function() {
   $("form#pizzaForm").submit(function(event) {
     event.preventDefault();
-    var elToppings = $('input:checkbox[name=toppings]:checked')
+    var elToppings = $('input[name=toppings]:checked')
     var elSize = $('input[name=size]:checked').val();
     var newPizza = new Pizza(elSize, elToppings);
         // document.getElementById("elPrice").innerHTML = elTabulator();
+    // $('.recipt').text(newPizza.elTabulator());
     $('.recipt').text(newPizza.elTabulator());
+
   });
 });
