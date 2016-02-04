@@ -15,7 +15,7 @@ describe("Pizza", function() {
     expect(testPizza.elTabulator()).to.equal(20);
   });
 
-  it("rubs the lotion on its skin", function() {
+  it("rubs the lotion on its skin, or", function() {
     expect(it.gets("hose").again);
   });
 });
