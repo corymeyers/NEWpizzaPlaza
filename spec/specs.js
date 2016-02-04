@@ -12,7 +12,7 @@ describe("Pizza", function() {
 
   it ("it tabulates the pricing, and posts the cost", function() {
     var testPizza = new Pizza("large", ["pepperoni", "pickles"]);
-    expect(testPizza.elTabulator()).to.equal();
+    expect(testPizza.elTabulator()).to.equal(20);
   });
 
 });
