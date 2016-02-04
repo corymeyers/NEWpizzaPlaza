@@ -5,26 +5,26 @@ function Pizza(elSize, elToppings) {
 }
 
 Pizza.prototype.elToppingsCaculator = function() {
-  this.elPrice = 0;
+  this.toppingPrice = 0;
   for (var i = 0; i < this.elToppings.length; i++) {
-    this.elPrice += 1;
-  }
+    this.toppingPrice += 1;
+  } return this.toppingPrice;
 }
 
 Pizza.prototype.elSizeCaculator = function() {
-  this.elPrice = 0;
+  this.sizePrice = 0;
   if(this.size === "small") {
-    this.elPrice =+ 14;
+    this.sizePrice =+ 14;
   } else if (this.size === "medium") {
-    this.elPrice =+ 16;
+    this.sizePrice =+ 16;
   } else if (this.size === "large") {
-    this.elPrice =+ 18;
-  } return this.elPrice
+    this.sizePrice =+ 18;
+  } return this.sizePrice
 }
 
 
 Pizza.prototype.elTabulator = function() {
-  return this.elToppingsCaculator() + this.elSizeCaculator();
+  return this.toppingPrice + this.sizePrice;
 }
 
 $(document).ready(function() {
