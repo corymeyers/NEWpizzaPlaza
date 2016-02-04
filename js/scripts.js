@@ -12,24 +12,25 @@ Pizza.prototype.elToppingsCaculator = function() {
 
 Pizza.prototype.elSizeCaculator = function() {
   this.sizePrice = 0;
-  if(this.size = "small") {
+  if(this.elSize == "small") {
     this.sizePrice += 14;
-  } else if (this.size = "medium") {
+  } else if (this.elSize == "medium") {
     this.sizePrice += 16;
-  } else if (this.size = "large") {
+  } else if (this.elSize == "large") {
     this.sizePrice += 18;
   } return this.sizePrice;
 }
 
 Pizza.prototype.elTabulator = function() {
-  return this.elToppingsCaculator() + this.elSizeCaculator();
+  return this.elSizeCaculator() + this.elToppingsCaculator();
 }
 
 $(document).ready(function() {
   $("form#pizzaForm").submit(function(event) {
     event.preventDefault();
-    var elToppings = $('input[name=toppings]:checked')
-    var elSize = $('input[name=size]:checked')
+    var elToppings = $('input[name=toppings]:checked');
+    var elSize = $('input[name=size]:checked').val();
+
     var newPizza = new Pizza(elSize, elToppings);
     $('.recipt').text(newPizza.elTabulator());
 
